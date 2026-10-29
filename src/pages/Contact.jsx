@@ -8,6 +8,7 @@ const whatsappNumber = '2347062719552';
 
 const Contact = () => {
   const [selectedService, setSelectedService] = useState('');
+  const [sendNotice, setSendNotice] = useState('');
 
   useEffect(() => {
     const selectRequestedService = (event) => setSelectedService(event.detail);
@@ -29,10 +30,12 @@ const Contact = () => {
 
     if (method === 'whatsapp') {
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(body)}`;
+      setSendNotice('WhatsApp is opening. Please send your message there to complete your inquiry.');
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       return;
     }
 
+    setSendNotice('Your email app is opening. Please send your message there to complete your inquiry.');
     window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -119,6 +122,7 @@ const Contact = () => {
                   <WhatsAppIcon size={18} /> Send via WhatsApp
                 </button>
               </div>
+              {sendNotice && <p className="send-method-notice" role="status" aria-live="polite">{sendNotice}</p>}
             </form>
           </div>
         </div>

@@ -138,7 +138,7 @@ const Projects = () => {
       <div className="container">
         <div className="page-header">
           <div>
-            <p className="subtitle"></p>
+            <p className="subtitle">OUR PROJECTS</p>
             <h1>Featured Projects</h1>
             <p className="desc">A selection of our recent work. Each project is built with purpose, designed for performance, and tailored to solve real-world problems.</p>
           </div>

@@ -612,6 +612,17 @@
   text-transform: uppercase;
 }
 
+.send-method-notice {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .send-method-buttons {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
