@@ -85,7 +85,13 @@ const Contact = () => {
           </div>
 
           <div className="contact-form">
-            <form onSubmit={sendMessage}>
+            <form
+              onSubmit={sendMessage}
+              onReset={() => {
+                setSelectedService('');
+                setSendNotice('');
+              }}
+            >
               <div className="form-group">
                 <label>Name *</label>
                 <input type="text" name="name" placeholder="Your name" required />
@@ -123,6 +129,7 @@ const Contact = () => {
                 </button>
               </div>
               {sendNotice && <p className="send-method-notice" role="status" aria-live="polite">{sendNotice}</p>}
+              {sendNotice && <button type="reset" className="clear-form-btn">Clear Form</button>}
             </form>
           </div>
         </div>

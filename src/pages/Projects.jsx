@@ -20,7 +20,7 @@ const projects = [
       'Figure 4.6 — Fraud Reporting Interface I.png',
       'Figure 4.8 — Case Tracking - Under Investigation.png',
       'Figure 4.11 — Investigator Case Management Dashboard.png',
-      'Figure 4.13 — Forensic Evidence Verification & Case Action I.png',
+      'Figure 4.13 - Forensic Evidence Verification and Case Action.png',
     ],
   },
   {
@@ -55,7 +55,7 @@ const projects = [
   },
   {
     id: 'vias',
-    name: 'VIAS — Vehicle Identification and Authentication System',
+    name: 'VIAS - Vehicle Identification and Authentication System',
     category: 'Custom Software',
     description: 'A vehicle identification and authentication system designed to support campus vehicle registration, access monitoring, and administrative oversight.',
     overview: 'VIAS provides an interface for managing vehicle-related information and supporting campus access operations. Its administrative dashboard presents the system’s main functions, while vehicle management and activity logs show supporting access operations.',
@@ -70,20 +70,47 @@ const projects = [
     ],
   },
   {
+    id: 'transport',
+    name: 'Campus Ride Matching System',
+    category: 'Campus Mobility',
+    description: 'A campus focused ride matching PWA that connects students with drivers using destination landmarks and live seat availability.',
+    overview: 'The Campus Ride Matching System coordinates campus shuttle and tricycle rides without relying on continuous GPS tracking. Students choose a campus destination landmark and see relevant active drivers and available seats. Real-time updates and atomic seat reservations keep student bookings and driver manifests in sync. Drivers can review trip summaries and export activity logs.',
+    features: ['Separate student and driver registration and login', 'Landmark based ride matching and driver allocation', 'Live driver sessions and seat availability', 'Atomic seat reservations with digital boarding tokens', 'Passenger alerts and driver trip summaries', 'CSV export of driver activity logs'],
+    tags: ['React.js', 'Vite', 'Tailwind CSS', 'Python / FastAPI', 'Supabase / PostgreSQL', 'PWA'],
+    service: 'Web Application Development',
+    primary: 'Figure 4.6 — Student Dashboard Destination Selection.png',
+    gallery: [
+      'Figure 4.6 — Student Dashboard Destination Selection.png',
+      'Figure 4.5 — Active Driver Management Dashboard.png',
+      'Figure 4.7 — Available Rides View for Students.png',
+      'Figure 4.9 — Student Digital Boarding Token.png',
+    ],
+  },
+  {
     id: 'aelmas',
-    name: 'AELMAS — Employee Leave Management System',
+    name: 'Automated Employee Leave Management System',
     category: 'Business Software',
-    description: 'An employee leave management application designed to organise leave requests and support administrative review and approval workflows.',
-    overview: 'AELMAS provides an interface for managing employee leave-related processes. Its leave-application interface demonstrates how digital workflows can help organisations handle requests and reduce reliance on manual administration.',
-    features: ['Employee leave applications', 'Leave request management', 'Administrative workflows', 'Digital record management'],
+    description: 'An employee leave management system for submitting leave requests and routing them through registrar and department head approval workflows.',
+    overview: 'AELMAS supports staff leave applications from submission through final approval. Staff can view their leave balance, while registrars and heads of department review requests, record decisions and remarks, and generate official approval letters. The system also provides leave activity reports.',
+    features: ['Staff account registration and leave applications', 'Registrar and department head approval workflows', 'Leave balance updates and automated deductions', 'Approval and rejection remarks', 'Generated leave approval letters and activity reports'],
     tags: ['React', 'Node.js', 'Express.js', 'MySQL', 'Tailwind CSS'],
     service: 'Web Application Development',
-    primary: null,
-    gallery: [],
+    primary: 'Figure 4.4 — Head of Department (HOD) Administrative Dashboard.png',
+    gallery: [
+      'Figure 4.4 — Head of Department (HOD) Administrative Dashboard.png',
+      'Figure 4.3 — Leave Application Modal.png',
+      'Figure 4.5 — Registrar Final Approval Queue.png',
+      'Figure 4.8 — Dynamically Generated Official Leave Approval Letter.png',
+    ],
   },
 ];
 
-const captionFor = (filename) => filename.replace(/\.png$/i, '');
+const projectOrder = ['aelmas', 'cyberguard', 'stockflow', 'vias', 'hotel', 'transport'];
+const orderedProjects = projectOrder.map((id) => projects.find((project) => project.id === id));
+
+const captionFor = (filename) => filename
+  .replace(/\.png$/i, '')
+  .replace(/^Figure\s+\d+(?:\.\d+)?\s*[—–-]\s*/i, '');
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -146,8 +173,9 @@ const Projects = () => {
         </div>
 
         <div className="projects-grid">
-          {projects.map((project) => (
+          {orderedProjects.map((project) => (
             <article key={project.id} className="project-card">
+              <span className="project-ribbon">CLIENT<br/>PROJECT</span>
               <div className={`project-image${project.primary ? '' : ' project-image-missing'}`}>
                 {project.primary ? (
                   <img src={image(project, project.primary)} alt={`${project.name} application interface`} />
@@ -156,10 +184,6 @@ const Projects = () => {
                 )}
               </div>
               <div className="project-content">
-                <div className="project-card-meta">
-                  <span className="project-category">{project.category}</span>
-                  <span className="client-badge">Client Project</span>
-                </div>
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
                 <div className="project-tags">
@@ -195,8 +219,7 @@ const Projects = () => {
               <div className="project-modal-heading">
                 <h2 id="project-modal-title">{activeProject.name}</h2>
                 <div className="project-card-meta">
-                  <span className="client-badge">Client Project</span>
-                  <span className="academic-label">Academic Client Project</span>
+                  <button type="button" className="academic-label" disabled><b>Academic Client Project</b></button>
                 </div>
               </div>
               <button ref={closeRef} type="button" className="project-modal-close" onClick={closeModal} aria-label="Close project details">
@@ -213,7 +236,7 @@ const Projects = () => {
                 <figcaption>{captionFor(activeProject.primary)}</figcaption>
               </figure>
             ) : (
-              <div className="project-detail-missing">No AELMAS application screenshots were included in the supplied project assets.</div>
+              <div className="project-detail-missing">No application screenshots were included in the supplied project assets.</div>
             )}
 
             {activeProject.gallery.length > 1 && (

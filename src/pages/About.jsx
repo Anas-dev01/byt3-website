@@ -9,7 +9,7 @@ const About = () => {
           <div className="hero-content">
             <p className="subtitle">ABOUT BYT3</p>
             <h1>Building Technology<br/>for a Better Future</h1>
-            <p className="desc">BYT3 is a remote-first technology company developing software and digital solutions that help businesses and organizations solve problems, streamline operations, and turn ideas into practical technology.</p>
+            <p className="desc">BYT3 is a remote-first technology company developing software and digital solutions that help businesses, organizations and students solve problems, streamline operations, and turn ideas into practical technology.</p>
           </div>
           <div className="hero-image">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Architecture" />
