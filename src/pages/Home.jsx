@@ -1,4 +1,5 @@
 import { ArrowRight, Code, Shield, Monitor, Zap } from 'lucide-react';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
 import './Pages.css'; // Shared page CSS
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
           </div>
           <div className="hero-image">
             {/* Using a placeholder that matches the dark architectural vibe */}
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Modern Architecture" />
+            <ImageWithSkeleton src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Modern Architecture" loading="eager" />
           </div>
         </div>
       </section>

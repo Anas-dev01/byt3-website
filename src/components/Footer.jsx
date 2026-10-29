@@ -21,8 +21,8 @@ const Footer = () => {
             <a href="#contact">Contact</a>
           </div>
           <div className="social-links">
-            <a href="#" aria-label="LinkedIn"><LinkedInIcon size={18} /></a>
-            <a href="#" aria-label="X"><XIcon size={18} /></a>
+            <span role="img" aria-label="LinkedIn profile link not configured" title="LinkedIn profile link not configured"><LinkedInIcon size={18} /></span>
+            <span role="img" aria-label="X profile link not configured" title="X profile link not configured"><XIcon size={18} /></span>
             <a href="https://wa.me/2347062719552" aria-label="WhatsApp" target="_blank" rel="noreferrer"><WhatsAppIcon size={18} /></a>
           </div>
         </div>

@@ -60,7 +60,7 @@ const Contact = () => {
               <div className="icon-box"><Mail size={20}/></div>
               <div>
                 <h4>Email</h4>
-                <p>usmansheikanas2006@gmail.com</p>
+                <p><a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
                 <p className="small-text">We respond within 12 hours.</p>
               </div>
             </div>

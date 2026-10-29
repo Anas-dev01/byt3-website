@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, X } from 'lucide-react';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
 import './Pages.css';
 
 const image = (project, filename) => `/images/projects/${project.id}/${encodeURIComponent(filename)}`;
@@ -169,16 +170,16 @@ const Projects = () => {
             <h1>Featured Projects</h1>
             <p className="desc">A selection of our recent work. Each project is built with purpose, designed for performance, and tailored to solve real-world problems.</p>
           </div>
-          <a href="#" className="view-all-link">View All Projects <ArrowRight size={16}/></a>
+          <a href="#project-list" className="view-all-link">View All Projects <ArrowRight size={16}/></a>
         </div>
 
-        <div className="projects-grid">
+        <div className="projects-grid" id="project-list">
           {orderedProjects.map((project) => (
             <article key={project.id} className="project-card">
               <span className="project-ribbon">CLIENT<br/>PROJECT</span>
               <div className={`project-image${project.primary ? '' : ' project-image-missing'}`}>
                 {project.primary ? (
-                  <img src={image(project, project.primary)} alt={`${project.name} application interface`} />
+                  <ImageWithSkeleton src={image(project, project.primary)} alt={`${project.name} application interface`} />
                 ) : (
                   <p>Application screenshot not present in supplied assets</p>
                 )}
@@ -231,7 +232,7 @@ const Projects = () => {
             {activeProject.primary ? (
               <figure className="project-detail-primary">
                 <a href={image(activeProject, activeProject.primary)} target="_blank" rel="noreferrer" aria-label={`Open full-size screenshot: ${captionFor(activeProject.primary)}`}>
-                  <img src={image(activeProject, activeProject.primary)} alt={`${activeProject.name} primary application screenshot`} />
+                  <ImageWithSkeleton src={image(activeProject, activeProject.primary)} alt={`${activeProject.name} primary application screenshot`} loading="eager" />
                 </a>
                 <figcaption>{captionFor(activeProject.primary)}</figcaption>
               </figure>
@@ -244,7 +245,7 @@ const Projects = () => {
                 {activeProject.gallery.slice(1).map((filename) => (
                   <figure key={filename}>
                     <a href={image(activeProject, filename)} target="_blank" rel="noreferrer" aria-label={`Open full-size screenshot: ${captionFor(filename)}`}>
-                      <img src={image(activeProject, filename)} alt={`${activeProject.name}: ${captionFor(filename)}`} loading="lazy" />
+                      <ImageWithSkeleton src={image(activeProject, filename)} alt={`${activeProject.name}: ${captionFor(filename)}`} />
                     </a>
                     <figcaption>{captionFor(filename)}</figcaption>
                   </figure>

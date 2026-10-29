@@ -1,4 +1,5 @@
 import { Target, Eye, Gem, ArrowRight } from 'lucide-react';
+import ImageWithSkeleton from '../components/ImageWithSkeleton';
 import './Pages.css';
 
 const About = () => {
@@ -12,7 +13,7 @@ const About = () => {
             <p className="desc">BYT3 is a remote-first technology company developing software and digital solutions that help businesses, organizations and students solve problems, streamline operations, and turn ideas into practical technology.</p>
           </div>
           <div className="hero-image">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Architecture" />
+            <ImageWithSkeleton src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Architecture" />
           </div>
         </div>
       </section>
@@ -48,7 +49,7 @@ const About = () => {
           </div>
           <div className="remote-image">
             {/* Placeholder for laptop image */}
-             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" alt="Remote Work" />
+             <ImageWithSkeleton src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" alt="Remote Work" />
           </div>
         </div>
       </section>

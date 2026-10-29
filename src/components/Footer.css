@@ -41,12 +41,16 @@
   gap: 16px;
 }
 
-.social-links a {
+.social-links a,
+.social-links > span {
+  display: inline-flex;
+  align-items: center;
   color: #888;
   transition: color 0.2s;
 }
 
 .social-links a:hover { color: var(--text-light); }
+.social-links > span { cursor: not-allowed; }
 
 @media (max-width: 768px) {
   .footer-container { flex-direction: column; gap: 24px; text-align: center; }

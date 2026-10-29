@@ -5,6 +5,7 @@ import Services from '../pages/Services';
 import Projects from '../pages/Projects';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+import BackToTop from './BackToTop';
 
 const Layout = () => {
   return (
@@ -18,6 +19,7 @@ const Layout = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
