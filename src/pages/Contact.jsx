@@ -3,7 +3,7 @@ import { Mail, MessageCircle, Share2 } from 'lucide-react';
 import { LinkedInIcon, WhatsAppIcon, XIcon } from '../components/SocialIcons';
 import './Pages.css';
 
-const contactEmail = 'usmansheikanas2006@gmail.com';
+const contactEmail = 'hello@byt3.com.ng';
 const whatsappNumber = '2347062719552';
 
 const Contact = () => {
